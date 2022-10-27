@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ошибка</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/errorStyle.css" th:href="@{/css/errorStyle.css}" />
+</head>
+<body>
+<h1 th:text="${header}"></h1>
+<p th:text="${content}"></p>
+<p><a onclick="window.history.back()">Go back</a></p>
+</body>
+</html>

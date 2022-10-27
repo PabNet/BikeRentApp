@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Текущие аренды</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/tableStyle.css" th:href="@{/css/tableStyle.css}" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<table>
+
+    <caption><h2>Ваши незакрытые аренды</h2></caption>
+
+    <thead>
+
+    <tr>
+        <th>Модель</th>
+        <th>Состояние</th>
+        <th>Дата начала</th>
+        <th>Дата окончания</th>
+        <th>Текущая стоимость</th>
+        <th>Действие</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr th:each="rentBike : ${rentedList}">
+        <td><a th:text="${rentBike.rent.bike.bike.model}" th:href="'/bike/' + ${rentBike.rent.bike.bike.id}"/></td>
+        <td th:text="${rentBike.rent.bike.condition.name}"/>
+        <td th:text="${rentBike.startTime}"/>
+        <td th:text="${rentBike.remainingTime}"/>
+        <td th:text="${rentBike.delayPrice}"/>
+        <td><a th:text="Завершить" th:href="'/endRent/' + ${rentBike.id}"/></td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

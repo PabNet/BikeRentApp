@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>История аренды</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/tableStyle.css" th:href="@{/css/tableStyle.css}" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<table style="margin-bottom: 20%">
+
+    <caption><h2>История ваших аренд</h2></caption>
+
+    <thead>
+
+    <tr>
+        <!--<th>Дата</th>-->
+        <th>Модель</th>
+        <th>Состояние</th>
+        <!--<th>Время аренды</th>-->
+        <!--<th>Финальная цена</th>-->
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr th:each="rental : ${ rentalHistory }">
+        <!--<td th:text="${ rentedBike.currentDate }"/>-->
+        <td><a th:text="${ rental.rent.bike.bike.model }" th:href="'/bike/' + ${ rental.rent.bike.bike.id }"/></td>
+        <td th:text="${ rental.rent.bike.condition.name }"/>
+        <!--<td th:text="${ rental.fullTime }"/>-->
+        <!--<td th:text="${ rentedBike.finalAmount }"/>-->
+    </tr>
+
+    </tbody>
+
+</table>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

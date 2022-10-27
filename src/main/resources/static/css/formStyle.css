@@ -1,0 +1,24 @@
+﻿button[type="submit"]:hover
+{
+    cursor: pointer;
+}
+
+legend
+{
+    text-align: center;
+}
+
+input
+{
+    color: black;
+    border: 1px solid black;
+    height: 2em;
+    width: 50em;
+}
+
+fieldset
+{
+    padding-left: 2em;
+    width: 45em;
+    border: 0.2em solid black;
+}

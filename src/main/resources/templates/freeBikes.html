@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Свободные велосипеды</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/tableStyle.css" th:href="@{/css/tableStyle.css}" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<table>
+
+    <caption><h2>Список свободных велосипедов</h2></caption>
+
+    <thead>
+
+    <tr>
+        <th>Модель</th>
+        <th>Состояние</th>
+        <th>Количество</th>
+        <th>Действие</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr th:each="freeBike : ${freeBikes}">
+        <td><a th:text="${freeBike.bikeAndCondition.bike.model}" th:href="'/bike/' + ${freeBike.bikeAndCondition.bike.id}"/></td>
+        <td th:text="${freeBike.bikeAndCondition.condition.name}"/>
+        <td th:text="${freeBike.count}"/>
+        <td><a th:text="Арендовать" th:href="'/rent/' + ${freeBike.id}"/></td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Арендовать велосипед</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/authorizationStyle.css" th:href="@{/css/authorizationStyle.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/formStyle.css" th:href="@{/css/formStyle.css}" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<fieldset>
+
+    <legend>Арендовать велосипед</legend>
+
+
+    <form method="post" action="/rent">
+
+        <label for="bikeModel">Модель</label>
+        <input type="text"
+               th:value="${bike.bike.model}"
+               readonly
+               name="bikeModel" id="bikeModel">
+
+        <label for="bikeCondition">Состояние</label>
+        <input type="text"
+               th:value="${bike.condition.name}"
+               readonly
+               name="bikeCondition" id="bikeCondition">
+
+        <label for="timeId">Время аренды</label>
+        <select id="timeId" name="timeId">
+            <option th:each="time : ${rentalTimes}"
+                    th:value="${time.id}"
+                    th:text="${time.time}">
+            </option>
+        </select>
+
+        <button type="submit">Арендовать</button> <br>
+
+    </form>
+
+</fieldset>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

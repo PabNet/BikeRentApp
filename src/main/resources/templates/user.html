@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/tableStyle.css" th:href="@{/css/tableStyle.css}" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<table style="margin-bottom: 20%; margin-top: 10%">
+
+    <caption><h2></h2></caption>
+
+    <thead>
+
+    <tr>
+        <th>Имя</th>
+        <th>Электронная почта</th>
+        <th>Мобильный номер</th>
+        <th>Паспортные данные</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+        <td th:text="${user.name}"/>
+        <td th:text="${user.email}"/>
+        <td th:text="${user.phoneNumber}"/>
+        <td th:text="${user.passportData}"/>
+    </tr>
+
+    </tbody>
+
+</table>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

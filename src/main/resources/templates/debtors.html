@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Должники</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/tableStyle.css" th:href="@{/css/tableStyle.css}" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<table>
+
+    <caption><h2>Список должников</h2></caption>
+
+    <thead>
+
+    <tr>
+        <th>Модель</th>
+        <th>Арендующий</th>
+        <th>Время просрочки</th>
+        <th>Штраф</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr th:each="rentedBike : ${ rentedBikes }">
+        <td><a th:text="${ rentedBike.rent.bike.model }" th:href="'/bike/' + ${rentedBike.rent.bike.id }"/></td>
+        <td><a th:text="${ rentedBike.rent.renter.name }" th:href="'/user/' + ${rentedBike.rent.renter.id }"/></td>
+        <td th:text="${ rentedBike.startTime }"/>
+        <td th:text="${ rentedBike.rent.rentalTime.time }"/>
+    </tr>
+
+    </tbody>
+
+</table>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

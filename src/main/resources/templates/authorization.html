@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/authorizationStyle.css" th:href="@{/css/authorizationStyle.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/formStyle.css" th:href="@{/css/formStyle.css}" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<fieldset>
+
+    <legend>
+        Авторизация
+    </legend>
+
+    <form method="post" action="/authorization">
+
+        <label for="login">Логин</label>
+        <input type="text"
+               required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$"
+               autocomplete="off"
+               autofocus
+               title="Логин должен быть не менее 8 и не более 20 символов,
+                      а также может содержать цифры, буквы латинского алфавита разного регистра"
+               name="login" id="login">
+
+        <label for="password">Пароль</label>
+        <input type="password"
+               required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+               title="Пароль должен быть не менее 8 символов и может содержать буквы латинского алфавита разного регистра, цифры и специальные символы"
+               name="password" id="password">
+
+        <button type="submit">Войти</button> <br>
+        <a href="/registration" id="RegistrationReference">Регистрация</a>
+
+    </form>
+
+</fieldset>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

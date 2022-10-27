@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главное меню</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/menuStyle.css" th:href="@{/css/menuStyle.css}" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="menu">
+    <ul>
+        <li onclick="window.location.href = '/rentedBikes'">Арендованные велосипеды</li>
+        <li onclick="window.location.href = '/debtors'">Должники</li>
+    </ul>
+</div>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

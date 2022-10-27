@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Велосипед</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css" th:href="@{/css/site.css}" />
+    <link rel="stylesheet" type="text/css" href="/static/css/tableStyle.css" th:href="@{/css/tableStyle.css}" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<table style="margin-bottom: 20%; margin-top: 10%">
+
+    <caption><h2></h2></caption>
+
+    <thead>
+
+    <tr>
+        <th>Модель</th>
+        <th>Год создания</th>
+        <th>Материал</th>
+        <th>Количество скоростей</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td th:text="${bike.model}"/>
+            <td th:text="${bike.creationYear}"/>
+            <td th:text="${bike.material.name}"/>
+            <td th:text="${bike.speeds.speedsCount}"/>
+        </tr>
+
+    </tbody>
+
+</table>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>
